@@ -5,6 +5,7 @@
 #include <UObject/ConstructorHelpers.h>
 #include <Animation/AnimInstance.h>
 #include "AIController_Enemy.h"
+#include <GameFramework/CharacterMovementComponent.h>
 
 // Sets default values
 AAICharacter_Enemy::AAICharacter_Enemy()
@@ -49,5 +50,10 @@ void AAICharacter_Enemy::SetupPlayerInputComponent(UInputComponent* PlayerInputC
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
+}
+
+void AAICharacter_Enemy::UpdateSpeed(float Speed)
+{
+	GetCharacterMovement()->MaxWalkSpeed = Speed;
 }
 
