@@ -19,6 +19,13 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	bool bIsSeeking;
+
+	class UParticleSystem* NoiseParticle;
+
+	UPROPERTY(VisibleAnywhere, Category = "Comp")
+	class USphereComponent* SphereComp;
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -26,4 +33,11 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	UFUNCTION()
+	void BeginMakeNoise();
+
+	UFUNCTION()
+	void Stop();
+
+	//virtual bool ShouldTickIfViewportsOnly() const override;
 };

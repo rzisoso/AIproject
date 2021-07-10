@@ -13,5 +13,18 @@ UCLASS()
 class AIPROJECT_API ACrossHUD : public AHUD
 {
 	GENERATED_BODY()
+
+public:
+
+	ACrossHUD();
 	
+protected:
+
+	virtual void BeginPlay() override;
+
+	class UTexture2D* CrossTexture;
+
+public:
+
+	virtual void DrawHUD() override;
 };

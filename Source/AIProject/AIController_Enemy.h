@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "AIController.h"
+
 #include "AIController_Enemy.generated.h"
 
 /**
@@ -24,7 +25,30 @@ protected:
 
 	class UBehaviorTree* BTEnemy;
 
+	class UBlackboardComponent* BlackboardComp;
+
+	class UBlackboardData* BlackboardData;
+
+	//EnumClass StateEnum;
+
+	class UUserDefinedEnum* StateEnum;
+
 public:
+
+	UFUNCTION(BlueprintCallable, Category = "State")
+	FName GetState();
+
+	UFUNCTION(BlueprintCallable, Category = "State")
+	class AAICharacter_Enemy* GetControllerEnemy();
+
+	UFUNCTION(BlueprintCallable, Category = "State")
+	void SetStatePassive();
+
+	void SetStateSeeking(FVector TargetLocation);
+
+	void SetStateinvestigate(FVector TargetLocation, FVector POI);
+
+	void SetStateAttack(AActor* Target);
 
 	
 };

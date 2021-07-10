@@ -14,4 +14,7 @@ class AIPROJECT_API ATestBadGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
 	
+public:
+
+	ATestBadGameModeBase();
 };

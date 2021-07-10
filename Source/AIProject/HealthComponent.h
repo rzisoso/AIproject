@@ -20,9 +20,24 @@ protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
 
+	float Health = 100.f, CurrentHealth = 100.f;
+
+	class UAnimMontage* DeadMontage;
+
+	bool bIsDead;
+
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
-		
+	UFUNCTION()
+	void OnTakeDamage(AActor* DamagedActor, float Damage, class AController* InstigatedBy, FVector HitLocation, class UPrimitiveComponent* FHitComponent, FName BoneName, FVector ShotFromDirection, const class UDamageType* DamageType, AActor* DamageCauser);
+
+	void OnDead();
+
+	UFUNCTION(BlueprintCallable, Category = "Dead")
+	bool GetIsDead();
+
+	UFUNCTION()
+	void DeadDelay();
 };

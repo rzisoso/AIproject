@@ -22,4 +22,12 @@ class AIPROJECT_API IInterface_AIHelper
 
 	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
 public:
+
+	virtual int8 GetTeamID();
+	virtual bool GetisDead();
+	//UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Interface")
+	virtual void NotifyStateChanged(FName StateName);
+	virtual class APatrolPointManager* GetPatrol();
+	virtual void SetAnimMode(bool IsWarning);
+	virtual float GetAttackRange();
 };
