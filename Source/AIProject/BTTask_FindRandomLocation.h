@@ -14,4 +14,12 @@ class AIPROJECT_API UBTTask_FindRandomLocation : public UBTTask_BlackboardBase
 {
 	GENERATED_BODY()
 	
+	virtual EBTNodeResult::Type ExecuteTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory) override;
+
+public:
+
+	UBTTask_FindRandomLocation();
+
+	UPROPERTY(EditANywhere, BlueprintReadWrite, Category = "Radius")
+	float Radius = 5000.f;
 };

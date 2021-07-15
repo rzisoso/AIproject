@@ -6,6 +6,8 @@
 #include <Components/SkeletalMeshComponent.h>
 #include <UObject/ConstructorHelpers.h>
 #include <Animation/AnimInstance.h>
+#include <Perception/AISenseConfig_Sight.h>
+#include <Perception/AIPerceptionComponent.h>
 
 // Sets default values
 ANPCCharacter::ANPCCharacter()
@@ -50,5 +52,18 @@ void ANPCCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompon
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
+}
+
+void ANPCCharacter::SetupPerceptionSystem()
+{
+	AIPerceptionComp = CreateDefaultSubobject<UAIPerceptionComponent>(TEXT("AIPerceptionComp"));
+
+	SightConfig = CreateDefaultSubobject<UAISenseConfig_Sight>(TEXT("SightConfig"));
+	SightConfig->SightRadius = 500.f;
+	SightConfig->LoseSightRadius = SightConfig->SightRadius + 100.f;
+	SightConfig->PeripheralVisionAngleDegrees = 65.f;
+
+	AIPerceptionComp->ConfigureSense(*SightConfig);
+	AIPerceptionComp->SetDominantSense(SightConfig->GetSenseImplementation());
 }
 

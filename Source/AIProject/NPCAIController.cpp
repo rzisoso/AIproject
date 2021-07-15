@@ -29,11 +29,11 @@ void ANPCAIController::BeginPlay()
 	}
 }
 
-//void ANPCAIController::OnPossess(APawn* InPawn)
-//{
-//	Super::OnPossess(InPawn);
-//	if (BTComp && NPCBehaviorTree)
-//	{
-//		BTComp->StartTree(*NPCBehaviorTree);
-//	}
-//}
+void ANPCAIController::OnPossess(APawn* InPawn)
+{
+	Super::OnPossess(InPawn);
+	if (BlackboardComp && NPCBehaviorTree)
+	{
+		BlackboardComp->InitializeBlackboard(*NPCBehaviorTree->BlackboardAsset);
+	}
+}
