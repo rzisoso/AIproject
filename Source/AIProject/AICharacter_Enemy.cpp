@@ -268,7 +268,7 @@ void AAICharacter_Enemy::OnPerceptionChanged(const TArray<AActor*>& UpdatedActor
 void AAICharacter_Enemy::PocessLastVision()
 {
 	bool bIsInterface = UKismetSystemLibrary::DoesImplementInterface(LastStimuliActor, UInterface_AIHelper::StaticClass());
-	if (bIsInterface && LastStimuliSensed.WasSuccessfullySensed())
+	if (bIsInterface)
 	{
 		IInterface_AIHelper* HasInterface = Cast<IInterface_AIHelper>(LastStimuliActor);
 		if (HasInterface)
