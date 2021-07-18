@@ -13,5 +13,8 @@ UCLASS()
 class AIPROJECT_API UTestBlackboard : public UBlackboardData
 {
 	GENERATED_BODY()
-	
+
+	UTestBlackboard();
+
+	class UBlackboardKeyType_Bool* bIsMove;
 };

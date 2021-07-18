@@ -13,5 +13,13 @@ UCLASS()
 class AIPROJECT_API UBTService_UpdateSpeed : public UBTService_BlackboardBase
 {
 	GENERATED_BODY()
+
+	UBTService_UpdateSpeed();
 	
+	virtual void OnBecomeRelevant(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory) override;
+
+protected:
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AI")
+	float Speed = 600.f;
 };

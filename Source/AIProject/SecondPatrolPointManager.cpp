@@ -21,13 +21,7 @@ void ASecondPatrolPointManager::BeginPlay()
 {
 	Super::BeginPlay();
 	
-	UKismetSystemLibrary::FlushPersistentDebugLines(this);
-	for (size_t i = 0; i < PatrolPoints.Num() - 1; i++)
-	{
-		FVector StartPoint = UKismetMathLibrary::TransformLocation(GetActorTransform(), PatrolPoints[i]);
-		FVector EndPoint = UKismetMathLibrary::TransformLocation(GetActorTransform(), PatrolPoints[i + 1]);
-		UKismetSystemLibrary::DrawDebugLine(this, StartPoint, EndPoint, FLinearColor::Red, 10.f, 10.f);
-	}
+	
 }
 
 // Called every frame
@@ -35,7 +29,13 @@ void ASecondPatrolPointManager::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-
+	//UKismetSystemLibrary::FlushPersistentDebugLines(this);
+	/*for (size_t i = 0; i < PatrolPoints.Num() - 1; i++)
+	{
+		FVector StartPoint = UKismetMathLibrary::TransformLocation(GetActorTransform(), PatrolPoints[i]);
+		FVector EndPoint = UKismetMathLibrary::TransformLocation(GetActorTransform(), PatrolPoints[i + 1]);
+		UKismetSystemLibrary::DrawDebugLine(this, StartPoint, EndPoint, FLinearColor::Red, 1.f, 10.f);
+	}*/
 }
 
 bool ASecondPatrolPointManager::ShouldTickIfViewportsOnly() const

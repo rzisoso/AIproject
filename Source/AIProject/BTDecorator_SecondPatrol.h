@@ -14,4 +14,10 @@ class AIPROJECT_API UBTDecorator_SecondPatrol : public UBTDecorator_BlackboardBa
 {
 	GENERATED_BODY()
 	
+	virtual bool CalculateRawConditionValue(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory) const override;
+
+protected:
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AI")
+	bool bIsOk = true;
 };
