@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include <Perception/AIPerceptionTypes.h>
 #include "NPCCharacter.generated.h"
 
 UCLASS()
@@ -19,6 +20,7 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Perception")
 	class UAIPerceptionComponent* AIPerceptionComp;
 
 	class UAISenseConfig_Sight* SightConfig;
@@ -32,4 +34,11 @@ public:
 
 	void SetupPerceptionSystem();
 
+	UFUNCTION()
+	void OnTargetPerceptionChange(AActor* Actor, FAIStimulus Stimulus);
+
+	UFUNCTION(BlueprintCallable, Category = "Patrol")
+	class ASecondPatrolPointManager* GetCurrentPatrol();
+
+	ASecondPatrolPointManager* MyPatrolPoints;
 };

@@ -30,4 +30,7 @@ protected:
 
 	class UBlackboardComponent* BlackboardComp;
 
+public:
+
+	void SetCanSeeKey(bool bCanSee);
 };

@@ -19,8 +19,16 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	UPROPERTY(VisibleAnywhere, Category = "Comp")
+	class USceneComponent* SceneComp;
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Properties", meta = (MakeEditWidget = "true"))
+	TArray<FVector> PatrolPoints;
+
+	virtual bool ShouldTickIfViewportsOnly() const override;
 
 };

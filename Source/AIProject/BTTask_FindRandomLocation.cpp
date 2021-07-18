@@ -7,6 +7,7 @@
 #include "NPCCharacter.h"
 #include <BehaviorTree/BlackboardComponent.h>
 #include <BehaviorTree/BehaviorTreeComponent.h>
+#include ".\..\..\Intermediate\ProjectFiles\BBKey.h"
 
 UBTTask_FindRandomLocation::UBTTask_FindRandomLocation()
 {
@@ -28,7 +29,7 @@ EBTNodeResult::Type UBTTask_FindRandomLocation::ExecuteTask(UBehaviorTreeCompone
 				//FVector Point = CurrentNavigation->GetRandomPointInNavigableRadius(this, Enemy->GetActorLocation(), Radius);
 				FVector Point =UNavigationSystemV1::GetRandomPointInNavigableRadius(this, Enemy->GetActorLocation(), Radius);
 				//UE_LOG(LogTemp, Warning, TEXT("X: %f, Y: %f, Z: %f"), Point.X, Point.Y, Point.Z);
-				OwnerComp.GetBlackboardComponent()->SetValueAsVector(FName("TargetLocation"), Point);
+				OwnerComp.GetBlackboardComponent()->SetValueAsVector(BBKeys::TargetLocation, Point);
 				return EBTNodeResult::Succeeded;
 			}
 			

@@ -6,6 +6,7 @@
 #include <UObject/ConstructorHelpers.h>
 #include <BehaviorTree/BehaviorTreeComponent.h>
 #include <BehaviorTree/BlackboardComponent.h>
+#include "./../../Intermediate/ProjectFiles/BBKey.h"
 
 ANPCAIController::ANPCAIController()
 {
@@ -36,4 +37,10 @@ void ANPCAIController::OnPossess(APawn* InPawn)
 	{
 		BlackboardComp->InitializeBlackboard(*NPCBehaviorTree->BlackboardAsset);
 	}
+}
+
+void ANPCAIController::SetCanSeeKey(bool bCanSee)
+{
+	//UE_LOG(LogTemp, Warning, TEXT("SetCanSee: %d"), bCanSee);
+	BlackboardComp->SetValueAsBool(BBKeys::CanSeePlayer, bCanSee);
 }
