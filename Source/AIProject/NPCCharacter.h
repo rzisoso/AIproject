@@ -38,7 +38,12 @@ public:
 	void OnTargetPerceptionChange(AActor* Actor, FAIStimulus Stimulus);
 
 	UFUNCTION(BlueprintCallable, Category = "Patrol")
-	class ASecondPatrolPointManager* GetCurrentPatrol();
+	class ASecondPatrolPointManager* GetCurrentPatrol() const;
 
+
+
+private:
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AI", meta = (AllowPrivateAccess = "true"))
 	ASecondPatrolPointManager* MyPatrolPoints;
 };

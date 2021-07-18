@@ -101,7 +101,7 @@ void ANPCCharacter::OnTargetPerceptionChange(AActor* Actor, FAIStimulus Stimulus
 	}
 }
 
-ASecondPatrolPointManager* ANPCCharacter::GetCurrentPatrol()
+ASecondPatrolPointManager* ANPCCharacter::GetCurrentPatrol() const
 {
 	return MyPatrolPoints;
 }
